@@ -30,6 +30,11 @@
 		9EF44CF11BC9556F00523E62 /* QuoteSearch.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EF44CF01BC9556F00523E62 /* QuoteSearch.xib */; };
 		9EF44CF31BC9557A00523E62 /* QuoteSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF44CF21BC9557A00523E62 /* QuoteSearchView.swift */; };
 		A8DD47FE1C5DD37900FAE308 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DD47FD1C5DD37900FAE308 /* CoreDataHelper.swift */; };
+		A8DD48001C5DDBD400FAE308 /* QuoteTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DD47FF1C5DDBD400FAE308 /* QuoteTextView.swift */; };
+		A8DD48031C5DDF7000FAE308 /* WikiFace.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DD48021C5DDF7000FAE308 /* WikiFace.swift */; };
+		A8DD48051C5DDF9A00FAE308 /* AuthorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DD48041C5DDF9A00FAE308 /* AuthorManager.swift */; };
+		A8DD48071C5DFB0100FAE308 /* NavigationControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DD48061C5DFB0100FAE308 /* NavigationControllerDelegate.swift */; };
+		A8DD48091C5DFBEA00FAE308 /* StartTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DD48081C5DFBEA00FAE308 /* StartTransitionAnimator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +68,11 @@
 		9EF44CF01BC9556F00523E62 /* QuoteSearch.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuoteSearch.xib; sourceTree = "<group>"; };
 		9EF44CF21BC9557A00523E62 /* QuoteSearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuoteSearchView.swift; sourceTree = "<group>"; };
 		A8DD47FD1C5DD37900FAE308 /* CoreDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
+		A8DD47FF1C5DDBD400FAE308 /* QuoteTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuoteTextView.swift; sourceTree = "<group>"; };
+		A8DD48021C5DDF7000FAE308 /* WikiFace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WikiFace.swift; sourceTree = "<group>"; };
+		A8DD48041C5DDF9A00FAE308 /* AuthorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorManager.swift; sourceTree = "<group>"; };
+		A8DD48061C5DFB0100FAE308 /* NavigationControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationControllerDelegate.swift; sourceTree = "<group>"; };
+		A8DD48081C5DFBEA00FAE308 /* StartTransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartTransitionAnimator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +90,8 @@
 			isa = PBXGroup;
 			children = (
 				9EF20CEA1BB2E33900C62296 /* WelcomeViewController.swift */,
+				A8DD48061C5DFB0100FAE308 /* NavigationControllerDelegate.swift */,
+				A8DD48081C5DFBEA00FAE308 /* StartTransitionAnimator.swift */,
 				9EF44CF51BC9558900523E62 /* AllQuotes */,
 				9EE594D61BBC707B0068B380 /* AddQuoteViewController.swift */,
 				9E1F5C341BC7CBB5006E3D48 /* QuoteViewController.swift */,
@@ -129,7 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				9EF20CE81BB2E33900C62296 /* AppDelegate.swift */,
-				A8DD47FD1C5DD37900FAE308 /* CoreDataHelper.swift */,
+				A8DD48011C5DDBE800FAE308 /* Helper */,
 				9E1A192B1BB8302F0058078A /* ViewControllers */,
 				9EF20CEC1BB2E33900C62296 /* Main.storyboard */,
 				9EF20CF21BB2E33900C62296 /* Assets.xcassets */,
@@ -174,6 +186,17 @@
 				9E1A192C1BB831F90058078A /* QuoteTableViewCell.swift */,
 			);
 			name = AllQuotes;
+			sourceTree = "<group>";
+		};
+		A8DD48011C5DDBE800FAE308 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				A8DD48021C5DDF7000FAE308 /* WikiFace.swift */,
+				A8DD47FF1C5DDBD400FAE308 /* QuoteTextView.swift */,
+				A8DD47FD1C5DD37900FAE308 /* CoreDataHelper.swift */,
+				A8DD48041C5DDF9A00FAE308 /* AuthorManager.swift */,
+			);
+			name = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,11 +280,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8DD48071C5DFB0100FAE308 /* NavigationControllerDelegate.swift in Sources */,
 				9EE3C4EA1BBC7692000C0857 /* Quote.m in Sources */,
 				9EE594D71BBC707B0068B380 /* AddQuoteViewController.swift in Sources */,
 				A8DD47FE1C5DD37900FAE308 /* CoreDataHelper.swift in Sources */,
+				A8DD48051C5DDF9A00FAE308 /* AuthorManager.swift in Sources */,
 				9E1F5C351BC7CBB5006E3D48 /* QuoteViewController.swift in Sources */,
+				A8DD48031C5DDF7000FAE308 /* WikiFace.swift in Sources */,
 				9E1F5C4A1BC82B74006E3D48 /* QuoteMenu.swift in Sources */,
+				A8DD48091C5DFBEA00FAE308 /* StartTransitionAnimator.swift in Sources */,
 				9EF44CF31BC9557A00523E62 /* QuoteSearchView.swift in Sources */,
 				9EE3C4E81BBC7692000C0857 /* Author.m in Sources */,
 				9EE3C4E71BBC7692000C0857 /* Author+CoreDataProperties.m in Sources */,
@@ -272,6 +299,7 @@
 				9E1A192D1BB831F90058078A /* QuoteTableViewCell.swift in Sources */,
 				9E1A19291BB80EBE0058078A /* AllQuotesViewController.swift in Sources */,
 				9E1F5C3B1BC7FD67006E3D48 /* QuoteImageView.swift in Sources */,
+				A8DD48001C5DDBD400FAE308 /* QuoteTextView.swift in Sources */,
 				9EF20CE91BB2E33900C62296 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
