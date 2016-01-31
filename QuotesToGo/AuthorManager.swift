@@ -25,24 +25,22 @@ class AuthorManager: NSObject {
                         let faceImageView = UIImageView(image: image!)
                         faceImageView.contentMode = .ScaleAspectFill
                         WikiFace.centerImageViewOnFace(faceImageView)
-                        
-                        UIGraphicsBeginImageContextWithOptions(faceImageView.bounds.size, true, 0)
-                        let context = UIGraphicsGetCurrentContext()
-                        faceImageView.layer.renderInContext(context!)
-                        let croppedImage = UIGraphicsGetImageFromCurrentImageContext()
-                        UIGraphicsEndImageContext()
-                        
-                        let imageData = UIImageJPEGRepresentation(croppedImage, 0.5)
-                        author.image = imageData
-//                        try! moc.save()
-//                        completion(author: author)
+                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                            UIGraphicsBeginImageContextWithOptions(faceImageView.bounds.size, true, 0)
+                            let context = UIGraphicsGetCurrentContext()
+                            faceImageView.layer.renderInContext(context!)
+                            let croppedImage = UIGraphicsGetImageFromCurrentImageContext()
+                            UIGraphicsEndImageContext()
+                            let imageData = UIImageJPEGRepresentation(croppedImage, 0.5)
+                            author.image = imageData
+                            try! moc.save()
+                            completion(author: author)
+                        })
                     } else {
                         author.image = nil
-//                        try! moc.save()
-//                        completion(author: author)
+                        try! moc.save()
+                        completion(author: author)
                     }
-                    try! moc.save()
-                    completion(author: author)
                 })
             } catch WikiFace.WikiFaceError.CouldNotDownloadImage {
                 print("Cound not access wikipedias for author image. sitting default picture.")

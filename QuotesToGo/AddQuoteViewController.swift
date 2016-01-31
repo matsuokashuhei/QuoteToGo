@@ -26,7 +26,7 @@ class AddQuoteViewController: UIViewController, UITextViewDelegate, NSLayoutMana
     @IBAction func addNewQuote(sender: AnyObject) {
         quoteTextView.resignFirstResponder()
         authorTextField.resignFirstResponder()
-        if quoteTextView.text != "" {
+        if quoteTextView.text != "" && quoteTextView.text != "Enter quote here" {
             donebutton.enabled = false
             backButton.enabled = false
             let quote = CoreDataHelper.insertManagedObject(NSStringFromClass(Quote), managedObjectContext: moc) as! Quote
