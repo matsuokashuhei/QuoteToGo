@@ -6,7 +6,7 @@
 
 import UIKit
 
-class AllQuotesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class AllQuotesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var ribbonTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var ribbon: UIImageView!
@@ -26,6 +26,8 @@ class AllQuotesViewController: UIViewController, UITableViewDataSource, UITableV
     var moc: NSManagedObjectContext!
     var quotes = [Quote]()
     
+    var searchMenu: QuoteSearchView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         moc = CoreDataHelper.managedObjectContext()
@@ -89,6 +91,11 @@ class AllQuotesViewController: UIViewController, UITableViewDataSource, UITableV
     @IBAction func showSearch(sender: AnyObject) {
         let quoteSearch = (NSBundle.mainBundle().loadNibNamed("QuoteSearch", owner: self, options: nil).last) as! QuoteSearchView
         quoteSearch.frame = CGRectMake(0, -150, self.view.bounds.size.width, 150)
+        quoteSearch.doneButton.addTarget(self, action: "hideSearch", forControlEvents: .TouchUpInside)
+        quoteSearch.searchTextField.delegate = self
+        quoteSearch.becomeFirstResponder()
+    
+        searchMenu = quoteSearch
         self.view.addSubview(quoteSearch)
         ribbonTopConstraint.constant = 119
         UIView.animateWithDuration(0.6, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.8, options: .CurveEaseInOut, animations: { () -> Void in
@@ -107,9 +114,41 @@ class AllQuotesViewController: UIViewController, UITableViewDataSource, UITableV
             }
         }
     }
-    
 
-    
+    func hideSearch() {
+        if let menu = searchMenu {
+            loadData()
+            ribbonTopConstraint.constant = 0
+            UIView.animateWithDuration(0.6, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.8, options: .CurveEaseInOut, animations: { () -> Void in
+                var newSearchFrame = menu.frame
+                newSearchFrame.origin.y = -150
+                menu.frame = newSearchFrame
+                self.view.layoutIfNeeded()
+                }, completion: { (success) -> Void in
+                    menu.removeFromSuperview()
+                    self.searchMenu = nil
+            })
+        }
+    }
+
+    func textFieldDidBeginEditing(textField: UITextField) {
+        if textField.text! == "Search for quote or author" {
+            textField.text = ""
+        }
+    }
+
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        searchFor(textField.text!)
+        return true
+    }
+
+    func searchFor(searchString: String) {
+        let predicate = NSPredicate(format: "content CONTAINS[c] %@ || ANY author.name CONTAINS[c] %@", searchString, searchString)
+        let sortDescriptor = NSSortDescriptor(key: "createdAt", ascending: false)
+        quotes = CoreDataHelper.fetchEntities(NSStringFromClass(Quote), managedObjectContext: moc, predicate: predicate, sortDescriptor: sortDescriptor) as! [Quote]
+        quotesTableView.reloadData()
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
