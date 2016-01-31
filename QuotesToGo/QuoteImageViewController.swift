@@ -8,19 +8,18 @@ import UIKit
 
 class QuoteImageViewController: UIViewController {
 
-
-    
     @IBOutlet weak var quiteImageView: UIImageView!
     @IBOutlet weak var imageLoadingIndicator: UIActivityIndicatorView!
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var saveButton: UIButton!
-    
-    
+
+    var quoteText: String!
+    var author: String!
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
-   
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

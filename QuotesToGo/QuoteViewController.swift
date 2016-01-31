@@ -75,9 +75,6 @@ class QuoteViewController: UIViewController, UITextViewDelegate, NSLayoutManager
         navigationController?.popViewControllerAnimated(true)
     }
 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -127,6 +124,22 @@ class QuoteViewController: UIViewController, UITextViewDelegate, NSLayoutManager
     func hideOnTap(recognizer: UITapGestureRecognizer) {
         hideOptions()
         view.removeGestureRecognizer(recognizer)
+    }
+
+    func createQuoteImage() {
+        performSegueWithIdentifier("createQuoteImage", sender: self)
+        let dispatchTime: dispatch_time_t = dispatch_time(DISPATCH_TIME_NOW, Int64(2 * Double(NSEC_PER_SEC)))
+        dispatch_after(dispatchTime, dispatch_get_main_queue()) { () -> Void in
+            self.hideOptions()
+        }
+    }
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "createQuoteImage" {
+            let quoteImageVC = segue.destinationViewController as! QuoteImageViewController
+            quoteImageVC.quoteText = quoteTextView.text
+            quoteImageVC.author = authorNameLabel.text
+        }
     }
 
     func shareQuote() {
