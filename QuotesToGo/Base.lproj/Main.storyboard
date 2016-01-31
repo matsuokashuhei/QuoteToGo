@@ -480,6 +480,9 @@
                                     <constraint firstAttribute="width" constant="41" id="l9j-G6-a7L"/>
                                 </constraints>
                                 <state key="normal" image="BackArrow"/>
+                                <connections>
+                                    <action selector="dismiss:" destination="xIA-7k-Tw9" eventType="touchUpInside" id="uYk-nU-54a"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SmallBookmark" translatesAutoresizingMaskIntoConstraints="NO" id="vcF-5O-3qK">
                                 <rect key="frame" x="284" y="0.0" width="33" height="40"/>

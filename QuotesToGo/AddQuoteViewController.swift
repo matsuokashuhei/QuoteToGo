@@ -21,6 +21,16 @@ class AddQuoteViewController: UIViewController, UITextViewDelegate, NSLayoutMana
         moc = CoreDataHelper.managedObjectContext()
         quoteTextView.delegate = self
         quoteTextView.layoutManager.delegate = self
+        createBorder()
+    }
+
+    func createBorder() {
+        let borderLayer = CAShapeLayer()
+        borderLayer.strokeColor = UIColor(white: 0.95, alpha: 1).CGColor
+        borderLayer.lineWidth = 24
+        borderLayer.fillColor = UIColor.clearColor().CGColor
+        borderLayer.path = UIBezierPath(rect: self.view.bounds).CGPath
+        borderView.layer.addSublayer(borderLayer)
     }
 
     @IBAction func addNewQuote(sender: AnyObject) {

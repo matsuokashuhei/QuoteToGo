@@ -89,7 +89,12 @@ class AllQuotesViewController: UIViewController, UITableViewDataSource, UITableV
     
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
+        if segue.identifier == "showQuote" {
+            let quoteVC = segue.destinationViewController as! QuoteViewController
+            if let indexPath = quotesTableView.indexPathForSelectedRow {
+                quoteVC.quote = quotes[indexPath.row]
+            }
+        }
     }
     
 
@@ -98,6 +103,5 @@ class AllQuotesViewController: UIViewController, UITableViewDataSource, UITableV
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
 }
