@@ -87,7 +87,25 @@ class AllQuotesViewController: UIViewController, UITableViewDataSource, UITableV
         }
         return cell
     }
-    
+
+    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+        let delete = UITableViewRowAction(style: .Destructive, title: "Delete Quote") { (action, indexPath) -> Void in
+            let quoteToDelete = self.quotes[indexPath.row]
+            quoteToDelete.managedObjectContext!.deleteObject(quoteToDelete)
+            try! self.moc.save()
+            self.handleDelete(indexPath)
+        }
+        delete.backgroundColor = UIColor(red: 0.902, green: 0.31, blue: 0.306, alpha: 1)
+        return [delete]
+    }
+
+    func handleDelete(indexPath: NSIndexPath) {
+        quotesTableView.beginUpdates()
+        quotes.removeAtIndex(indexPath.row)
+        quotesTableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+        quotesTableView.endUpdates()
+    }
+
     @IBAction func showSearch(sender: AnyObject) {
         let quoteSearch = (NSBundle.mainBundle().loadNibNamed("QuoteSearch", owner: self, options: nil).last) as! QuoteSearchView
         quoteSearch.frame = CGRectMake(0, -150, self.view.bounds.size.width, 150)
