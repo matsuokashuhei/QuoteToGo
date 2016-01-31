@@ -13,11 +13,11 @@ class QuoteTableViewCell: UITableViewCell {
     @IBOutlet weak var dataLabel: UILabel!
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var authorImageView: UIImageView!
+
     override func awakeFromNib() {
         super.awakeFromNib()
        
     }
-    
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
