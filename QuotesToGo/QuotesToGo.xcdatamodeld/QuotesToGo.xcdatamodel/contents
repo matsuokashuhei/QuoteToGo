@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="8195" systemVersion="15A282b" minimumToolsVersion="Automatic">
+    <entity name="Author" representedClassName="Author" syncable="YES">
+        <attribute name="image" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="quote" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Quote" inverseName="author" inverseEntity="Quote" syncable="YES"/>
+    </entity>
+    <entity name="Quote" representedClassName="Quote" syncable="YES">
+        <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="author" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Author" inverseName="quote" inverseEntity="Author" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Quote" positionX="-63" positionY="-18" width="128" height="90"/>
+        <element name="Author" positionX="475" positionY="-0" width="128" height="88"/>
+    </elements>
+</model>

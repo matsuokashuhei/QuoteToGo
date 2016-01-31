@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="15A282b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="QuoteMenu" customModule="QuotesToGo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="agl-Ka-4Xe">
+                    <rect key="frame" x="233" y="63" width="135" height="45"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="24"/>
+                    <state key="normal" title="Generate Image">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cd2-wa-IP4">
+                    <rect key="frame" x="248" y="142" width="105" height="45"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="24"/>
+                    <state key="normal" title="Share Quote">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B3q-RN-hip">
+                    <rect key="frame" x="245" y="222" width="111" height="45"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="24"/>
+                    <state key="normal" title="Delete Quote">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ewb-cR-D2V">
+                    <rect key="frame" x="282" y="128" width="37" height="1"/>
+                    <animations/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="37" id="QO5-yk-XRH"/>
+                        <constraint firstAttribute="height" constant="1" id="VeK-Mr-8ld"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vHE-Vn-69E">
+                    <rect key="frame" x="282" y="208" width="37" height="1"/>
+                    <animations/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="37" id="RPT-dh-Det"/>
+                        <constraint firstAttribute="height" constant="1" id="XOa-oh-ysL"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <animations/>
+            <color key="backgroundColor" red="0.90196078431372551" green="0.30980392156862746" blue="0.30588235294117649" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="ewb-cR-D2V" firstAttribute="top" secondItem="agl-Ka-4Xe" secondAttribute="bottom" constant="20" id="0I6-Hf-ll3"/>
+                <constraint firstItem="vHE-Vn-69E" firstAttribute="top" secondItem="Cd2-wa-IP4" secondAttribute="bottom" constant="21" id="AA2-cc-By6"/>
+                <constraint firstItem="Cd2-wa-IP4" firstAttribute="top" secondItem="ewb-cR-D2V" secondAttribute="bottom" constant="13" id="AuY-pn-jwA"/>
+                <constraint firstItem="ewb-cR-D2V" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Qrt-t7-LSb"/>
+                <constraint firstItem="agl-Ka-4Xe" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="eXW-eI-TdV"/>
+                <constraint firstItem="Cd2-wa-IP4" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="edB-SU-cNn"/>
+                <constraint firstItem="vHE-Vn-69E" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="luz-Pc-tHc"/>
+                <constraint firstItem="agl-Ka-4Xe" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="63" id="njI-7f-5uq"/>
+                <constraint firstItem="B3q-RN-hip" firstAttribute="top" secondItem="vHE-Vn-69E" secondAttribute="bottom" constant="13" id="pZz-YX-rzR"/>
+                <constraint firstItem="B3q-RN-hip" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="yJ7-1l-eqx"/>
+            </constraints>
+            <connections>
+                <outlet property="deleteQuoteButton" destination="B3q-RN-hip" id="f3J-pk-C65"/>
+                <outlet property="quoteImageButton" destination="agl-Ka-4Xe" id="d5M-2k-dY5"/>
+                <outlet property="shareQuoteButton" destination="Cd2-wa-IP4" id="MfI-C0-eSw"/>
+            </connections>
+        </view>
+    </objects>
+</document>
