@@ -20,6 +20,8 @@ class QuoteViewController: UIViewController, UITextViewDelegate, NSLayoutManager
     var moc: NSManagedObjectContext!
     var quote: Quote!
 
+    var optionsMenu: QuoteMenu!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         moc = CoreDataHelper.managedObjectContext()
@@ -85,6 +87,46 @@ class QuoteViewController: UIViewController, UITextViewDelegate, NSLayoutManager
         return 9
     }
    
+    @IBAction func displayOptions(sender: AnyObject) {
+        let quoteMenu = NSBundle.mainBundle().loadNibNamed("QuoteMenu", owner: self, options: nil).last as! QuoteMenu
+        quoteMenu.frame = CGRectMake(0, -300, view.bounds.size.width, 300)
+        optionsMenu = quoteMenu
+        quoteMenu.quoteImageButton.addTarget(self, action: "createQuoteImage", forControlEvents: .TouchUpInside)
+        quoteMenu.shareQuoteButton.addTarget(self, action: "shareQuote", forControlEvents: .TouchUpInside)
+        quoteMenu.deleteQuoteButton.addTarget(self, action: "deleteQuote", forControlEvents: .TouchUpInside)
+        view.addSubview(quoteMenu)
+        smallBookmarkTopConstraint.constant = 254
+        UIView.animateWithDuration(0.6, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.8, options: .CurveEaseInOut, animations: { () -> Void in
+            var newQuoteMenuFrame = quoteMenu.frame
+            newQuoteMenuFrame.origin.y = -44
+            quoteMenu.frame = newQuoteMenuFrame
+            self.dateLabel.alpha = 0
+            self.view.layoutIfNeeded()
+            }) { (success) -> Void in
+                let gestureRecognizer = UITapGestureRecognizer(target: self, action: "hideOnTap:")
+                gestureRecognizer.numberOfTapsRequired = 1
+                self.view.addGestureRecognizer(gestureRecognizer)
+        }
+    }
 
-   
+    func hideOptions() {
+        if let menu = optionsMenu {
+            smallBookmarkTopConstraint.constant = 0
+            UIView.animateWithDuration(0.6, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.8, options: .CurveEaseInOut, animations: { () -> Void in
+                var newQuoteMenuFrame = menu.frame
+                newQuoteMenuFrame.origin.y = -300
+                menu.frame = newQuoteMenuFrame
+                self.view.layoutIfNeeded()
+                }, completion: { (success) -> Void in
+                    menu.removeFromSuperview()
+                    self.optionsMenu = nil
+            })
+        }
+    }
+
+    func hideOnTap(recognizer: UITapGestureRecognizer) {
+        hideOptions()
+        view.removeGestureRecognizer(recognizer)
+    }
+
 }
