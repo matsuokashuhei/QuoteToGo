@@ -16,7 +16,10 @@ class QuoteTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-       
+        ImageMasker.maskImage(authorImageView, size: CGSize(width: 54, height: 54))
+        if UIScreen.mainScreen().bounds.size.width <= 320 {
+            quoteLabelWidthConstraint.constant = 270
+        }
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

@@ -35,6 +35,7 @@
 		A8DD48051C5DDF9A00FAE308 /* AuthorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DD48041C5DDF9A00FAE308 /* AuthorManager.swift */; };
 		A8DD48071C5DFB0100FAE308 /* NavigationControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DD48061C5DFB0100FAE308 /* NavigationControllerDelegate.swift */; };
 		A8DD48091C5DFBEA00FAE308 /* StartTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DD48081C5DFBEA00FAE308 /* StartTransitionAnimator.swift */; };
+		A8DD480B1C5E14F700FAE308 /* ImageMasker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DD480A1C5E14F700FAE308 /* ImageMasker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +74,7 @@
 		A8DD48041C5DDF9A00FAE308 /* AuthorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorManager.swift; sourceTree = "<group>"; };
 		A8DD48061C5DFB0100FAE308 /* NavigationControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationControllerDelegate.swift; sourceTree = "<group>"; };
 		A8DD48081C5DFBEA00FAE308 /* StartTransitionAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartTransitionAnimator.swift; sourceTree = "<group>"; };
+		A8DD480A1C5E14F700FAE308 /* ImageMasker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageMasker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +197,7 @@
 				A8DD47FF1C5DDBD400FAE308 /* QuoteTextView.swift */,
 				A8DD47FD1C5DD37900FAE308 /* CoreDataHelper.swift */,
 				A8DD48041C5DDF9A00FAE308 /* AuthorManager.swift */,
+				A8DD480A1C5E14F700FAE308 /* ImageMasker.swift */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -300,6 +303,7 @@
 				9E1A19291BB80EBE0058078A /* AllQuotesViewController.swift in Sources */,
 				9E1F5C3B1BC7FD67006E3D48 /* QuoteImageView.swift in Sources */,
 				A8DD48001C5DDBD400FAE308 /* QuoteTextView.swift in Sources */,
+				A8DD480B1C5E14F700FAE308 /* ImageMasker.swift in Sources */,
 				9EF20CE91BB2E33900C62296 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
