@@ -244,6 +244,9 @@
                                 <state key="normal" title="SEARCH">
                                     <color key="titleColor" red="0.72156862749999995" green="0.72156862749999995" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="showSearch:" destination="Hhg-yk-ZHR" eventType="touchUpInside" id="SR6-Yu-8VL"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PgM-kB-5fy">
                                 <rect key="frame" x="507" y="24" width="63" height="33"/>

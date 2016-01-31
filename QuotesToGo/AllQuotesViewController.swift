@@ -86,8 +86,19 @@ class AllQuotesViewController: UIViewController, UITableViewDataSource, UITableV
         return cell
     }
     
-    
-    
+    @IBAction func showSearch(sender: AnyObject) {
+        let quoteSearch = (NSBundle.mainBundle().loadNibNamed("QuoteSearch", owner: self, options: nil).last) as! QuoteSearchView
+        quoteSearch.frame = CGRectMake(0, -150, self.view.bounds.size.width, 150)
+        self.view.addSubview(quoteSearch)
+        ribbonTopConstraint.constant = 119
+        UIView.animateWithDuration(0.6, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.8, options: .CurveEaseInOut, animations: { () -> Void in
+            var newSearchMenuFrame = quoteSearch.frame
+            newSearchMenuFrame.origin.y = -30
+            quoteSearch.frame = newSearchMenuFrame
+            self.view.layoutIfNeeded()
+            }, completion: nil)
+    }
+
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showQuote" {
             let quoteVC = segue.destinationViewController as! QuoteViewController
