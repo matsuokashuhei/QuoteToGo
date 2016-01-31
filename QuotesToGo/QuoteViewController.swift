@@ -129,6 +129,13 @@ class QuoteViewController: UIViewController, UITextViewDelegate, NSLayoutManager
         view.removeGestureRecognizer(recognizer)
     }
 
+    func shareQuote() {
+        let quoteString = "\"\(quote.content!)\" - \(quote.author!.name!)"
+        let activityController = UIActivityViewController(activityItems: [quoteString], applicationActivities: nil)
+        hideOptions()
+        self.presentViewController(activityController, animated: true, completion: nil)
+    }
+
     func deleteQuote() {
         quote.managedObjectContext?.deleteObject(quote)
         try! moc.save()
