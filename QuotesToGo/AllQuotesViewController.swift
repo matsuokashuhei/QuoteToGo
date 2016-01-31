@@ -29,7 +29,17 @@ class AllQuotesViewController: UIViewController, UITableViewDataSource, UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
         moc = CoreDataHelper.managedObjectContext()
+        createBorder()
         loadData()
+    }
+
+    func createBorder() {
+        let borderLayer = CAShapeLayer()
+        borderLayer.strokeColor = UIColor(white: 0.95, alpha: 1).CGColor
+        borderLayer.lineWidth = 24
+        borderLayer.fillColor = UIColor.clearColor().CGColor
+        borderLayer.path = UIBezierPath(rect: self.view.bounds).CGPath
+        borderView.layer.addSublayer(borderLayer)
     }
 
     func loadData() {
