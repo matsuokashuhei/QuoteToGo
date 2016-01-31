@@ -129,4 +129,15 @@ class QuoteViewController: UIViewController, UITextViewDelegate, NSLayoutManager
         view.removeGestureRecognizer(recognizer)
     }
 
+    func deleteQuote() {
+        quote.managedObjectContext?.deleteObject(quote)
+        try! moc.save()
+        let transition = CATransition()
+        transition.duration = 0.5
+        transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        transition.type = kCATransitionFade
+        self.navigationController?.view.layer.addAnimation(transition, forKey: nil)
+        self.navigationController?.popViewControllerAnimated(false)
+    }
+
 }
