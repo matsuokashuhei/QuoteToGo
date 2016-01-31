@@ -33,6 +33,11 @@ class AllQuotesViewController: UIViewController, UITableViewDataSource, UITableV
         loadData()
     }
 
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        loadData()
+    }
+
     func createBorder() {
         let borderLayer = CAShapeLayer()
         borderLayer.strokeColor = UIColor(white: 0.95, alpha: 1).CGColor
