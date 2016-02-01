@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="15A282b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -12,16 +12,13 @@
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="demoImage" translatesAutoresizingMaskIntoConstraints="NO" id="cE8-Yr-gKy" propertyAccessControl="all">
                     <rect key="frame" x="0.0" y="0.0" width="1200" height="1200"/>
-                    <animations/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fY5-3N-D6R" propertyAccessControl="all">
                     <rect key="frame" x="0.0" y="0.0" width="1200" height="1200"/>
-                    <animations/>
                     <color key="backgroundColor" red="0.14901960784313725" green="0.14901960784313725" blue="0.14901960784313725" alpha="0.75" colorSpace="calibratedRGB"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="quoteSign" translatesAutoresizingMaskIntoConstraints="NO" id="hJK-v4-hjg" propertyAccessControl="all">
                     <rect key="frame" x="458" y="160" width="285" height="285"/>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="285" id="IaW-te-eFz"/>
                         <constraint firstAttribute="width" constant="285" id="MSX-bT-GeD"/>
@@ -29,7 +26,6 @@
                 </imageView>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="“You see things; and you say, why?  But I dream things that never were; and I say why not?”" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Ihh-S7-3i5">
                     <rect key="frame" x="175" y="624" width="851" height="523"/>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="523" id="5lN-Ga-Ooq"/>
                     </constraints>
@@ -39,7 +35,6 @@
                 </textView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GEORGE BERNARD SHAW" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IFO-M2-0jr">
                     <rect key="frame" x="0.0" y="515" width="1200" height="47"/>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="47" id="6m6-Bw-PxD"/>
                     </constraints>
@@ -49,7 +44,6 @@
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="haJ-Wd-TmS">
                     <rect key="frame" x="538" y="597" width="124" height="3"/>
-                    <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="124" id="FZg-s8-Uot"/>
@@ -57,7 +51,6 @@
                     </constraints>
                 </view>
             </subviews>
-            <animations/>
             <color key="backgroundColor" red="0.14901960784313725" green="0.14901960784313725" blue="0.14901960784313725" alpha="0.75" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="Ihh-S7-3i5" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="175" id="1Et-Yl-prq"/>

@@ -18,6 +18,56 @@ class QuoteImageViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        createQuoteImage()
+    }
+
+    func createQuoteImage() {
+        imageLoadingIndicator.startAnimating()
+        let randomImageIndex = Int(arc4random_uniform(UInt32(45))) + 1
+        let URL = NSURL(string: "http://www.daniel-autenrieth.de/quotesToGo/\(randomImageIndex).jpg")!
+        getDataFromURL(URL) { (data, response, error) -> Void in
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                guard let data = data where error == nil else {
+                    return
+                }
+                self.shareButton.enabled = true
+                self.saveButton.enabled = true
+                let quoteImage = NSBundle.mainBundle().loadNibNamed("QuoteShareImageView", owner: self, options: nil).last as! QuoteImageView
+                quoteImage.backgroundImage.image = UIImage(data: data)
+                quoteImage.quoteTextView.text = self.quoteText
+                quoteImage.authorLabel.text = self.author
+
+                UIGraphicsBeginImageContextWithOptions(quoteImage.bounds.size, true, 0)
+                let context = UIGraphicsGetCurrentContext()
+                quoteImage.layer.renderInContext(context!)
+                let image = UIGraphicsGetImageFromCurrentImageContext()
+                UIGraphicsEndImageContext()
+                
+                let imageData = UIImageJPEGRepresentation(image, 0.5)
+                UIView.animateWithDuration(0.2, animations: { () -> Void in
+                    self.quiteImageView.alpha = 0
+                    }, completion: { (success) -> Void in
+                        self.quiteImageView.image = UIImage(data: imageData!)
+                        UIView.animateWithDuration(0.2, animations: { () -> Void in
+                            self.imageLoadingIndicator.alpha = 0
+                            self.imageLoadingIndicator.stopAnimating()
+                            self.quiteImageView.alpha = 1
+                        })
+                })
+                /*
+                UIView.animateWithDuration(0.2, animations: { () -> Void in
+                    self.quiteImageView.alpha = 0
+                    }, completion: { (success) -> Void in
+                })
+                */
+            })
+        }
+    }
+
+    func getDataFromURL(URL: NSURL, completion: ((data: NSData?, response: NSURLResponse?, error: NSError?) -> Void)) {
+        NSURLSession.sharedSession().dataTaskWithURL(URL) { (data, response, error) -> Void in
+            completion(data: data, response: response, error: error)
+        }.resume()
     }
 
     override func didReceiveMemoryWarning() {
