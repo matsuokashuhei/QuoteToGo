@@ -75,6 +75,20 @@ class QuoteImageViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func saveToCameraRoll(sender: AnyObject) {
+        UIImageWriteToSavedPhotosAlbum(quiteImageView.image!, nil, nil, nil)
+    }
+
+    @IBAction func shareQuote(sender: AnyObject) {
+        let quoteString = "\"\(quoteText)\" - \(author)"
+        let quoteImage = quiteImageView.image!
+        let activityController = UIActivityViewController(activityItems: [quoteImage, quoteString], applicationActivities: nil)
+        presentViewController(activityController, animated: true, completion: nil)
+    }
+
+    @IBAction func dismiss(sender: AnyObject) {
+        navigationController?.popViewControllerAnimated(true)
+    }
 
     /*
     // MARK: - Navigation
